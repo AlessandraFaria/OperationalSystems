@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,11 +34,27 @@ namespace ConsoleApplication2
         }
         public static void ImprimeK31()
         {
-            for (int i = 0; i < 100; i++)
+            int n = 5;
+            int numeroAnterior = 0;
+            int numeroAtual = 1;
+            int novoNumero;
+            int fibonacci;
+
+
+            for (int i = 0; i < n; i++)
             {
-                System.Console.WriteLine(" K31 ");
-                if (i % 10 == 0) Thread.Sleep(100);
+                fibonacci = numeroAnterior + numeroAtual;
+                System.Console.Write(fibonacci+" ");
+                numeroAnterior = numeroAtual;
+                numeroAtual = fibonacci;
+                if (i % 10 == 0) Thread.Sleep(1000);
             }
+
+            //for (int i = 0; i < 100; i++)
+            //{
+            //    System.Console.WriteLine(" K31 ");
+            //    if (i % 10 == 0) Thread.Sleep(100);
+            //}
         }
     }
 }
