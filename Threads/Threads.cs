@@ -20,7 +20,7 @@ namespace ConsoleApplication2
 
             Thread thread1 = new Thread(ImprimeK19);
             thread1.Start(); //inicia a rotina da thread
-            thread1.Join(); //espera o fim da execução da thread para seguir o código
+            thread1.Join(); //espera o fim da execuÃ§Ã£o da thread para seguir o cÃ³digo
 
             Thread thread2 = new Thread(ImprimeK31);
             thread2.Start();
@@ -28,7 +28,7 @@ namespace ConsoleApplication2
 
             int resultado;
             resultado = fibonacci + fatorial;
-            Console.WriteLine(" A soma do fibonacci de N e do Fatorial de N é :" + resultado);
+            Console.WriteLine(" A soma do fibonacci de N e do Fatorial de N Ã© :" + resultado);
 
             Console.ReadKey();
         }
