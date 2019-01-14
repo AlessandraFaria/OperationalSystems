@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Jantar_Filosofos {
     //Trabalho Final Sistemas Operacionais
-    //ExercÌcio 6.3
+    //Exerc√≠cio 6.3
     //Data: 01/06/2018
     //Grupo: Alessandra Faria, Cleuba Alves, Lucas Amancio, Mirella Avelino e Yanna Paula 
-    //DescriÁ„o: Problema do jantar dos filÛsofos utilizando sem·foro
+    //Descri√ß√£o: Problema do jantar dos fil√≥sofos utilizando sem√°foro
 
     public class Jantar {
-        // Cria padrıes de comportamento dos filÛsofos
+        // Cria padr√µes de comportamento dos fil√≥sofos
         public
         const int pensando = 0;
         public
@@ -21,12 +21,12 @@ namespace Jantar_Filosofos {
         public
         const int comendo = 2;
 
-        // O sem·foro mutex que recebe o valor incial 1 para o contador
-        // e È o sem·foro principal da nossa aplicaÁ„o
+        // O sem√°foro mutex que recebe o valor incial 1 para o contador
+        // e √© o sem√°foro principal da nossa aplica√ß√£o
         public static Semaphore mutex = new Semaphore(1, 1);
 
-        // O vetor sem·foros s„o normais e existe um sem·foro para cada filÛsofo
-        // que ser· criado, esses semafÛros n„o recebem valores de inicializaÁ„o
+        // O vetor sem√°foros s√£o normais e existe um sem√°foro para cada fil√≥sofo
+        // que ser√° criado, esses semaf√≥ros n√£o recebem valores de inicializa√ß√£o
         // portanto iniciando o contador em 0
         public static Semaphore[] semaforos = new Semaphore[] {
             new Semaphore(0, 1),
@@ -36,18 +36,18 @@ namespace Jantar_Filosofos {
                 new Semaphore(0, 1)
         };
 
-        // Define um vetor para o estado de cada um dos filÛsofos presentes
-        // na aplicaÁ„o
+        // Define um vetor para o estado de cada um dos fil√≥sofos presentes
+        // na aplica√ß√£o
         public static int[] estado = new int[5];
 
-        // Cria 5 filÛsofos em um vetor para a aplicaÁ„o
+        // Cria 5 fil√≥sofos em um vetor para a aplica√ß√£o
         public static Filosofo[] filosofo = new Filosofo[5];
 
         static void Main(string[] args) {
 
             Console.WriteLine("********************************************************");
-            Console.WriteLine("ExercÌcio 6.3 - Jantar dos FilÛsofos com Sem·foro");
-            Console.WriteLine("Grupo: Alessandra Faria Abreu 573831\nCleuba Alves Ribeiro612542\nLucas Amancio Mantini 590982\nMirella Avelino Soares 590983\nYanna Paula Ara˙jo Silva 601282");
+            Console.WriteLine("Exerc√≠cio 6.3 - Jantar dos Fil√≥sofos com Sem√°foro");
+            Console.WriteLine("Grupo: Alessandra Faria Abreu 573831\nCleuba Alves Ribeiro612542\nLucas Amancio Mantini 590982\nMirella Avelino Soares 590983\nYanna Paula Ara√∫jo Silva 601282");
             Console.WriteLine("********************************************************");
 
 
@@ -56,7 +56,7 @@ namespace Jantar_Filosofos {
             for (int i = 0; i < estado.Length; i++) {
                 estado[i] = pensando;
             }
-            // Inicializa todos filÛsofos
+            // Inicializa todos fil√≥sofos
             filosofo[0] = new Filosofo(0);
             filosofo[1] = new Filosofo(1);
             filosofo[2] = new Filosofo(2);
@@ -71,7 +71,7 @@ namespace Jantar_Filosofos {
             Thread t3 = new Thread(new ThreadStart(filosofo[3].run));
             Thread t4 = new Thread(new ThreadStart(filosofo[4].run));
 
-            // Inicia a execuÁ„o de todos filÛsofos
+            // Inicia a execu√ß√£o de todos fil√≥sofos
             t0.Start();
             t1.Start();
             t2.Start();
@@ -81,23 +81,23 @@ namespace Jantar_Filosofos {
     }
 
 
-    //CRIA UM OBJETO REPRESENTATIVO PARA O FIL”SOFO QUE PODER¡ COMER, PENSAR E ESTAR COM FOME.
+    //CRIA UM OBJETO REPRESENTATIVO PARA O FIL√ìSOFO QUE PODER√Å COMER, PENSAR E ESTAR COM FOME.
     public class Filosofo {
-        //n˙mero do filosofo
+        //n√∫mero do filosofo
         private int cadeira;
 
-        // MÈtodo construtor que recebe um cÛdigo de identificaÁ„o do filÛsofo
+        // M√©todo construtor que recebe um c√≥digo de identifica√ß√£o do fil√≥sofo
         public Filosofo(int cadeira) {
             this.cadeira = cadeira;
         }
 
-        // MÈtodo de execuÁ„o da classe, onde o ambiente do filÛsofo ser· rodado
+        // M√©todo de execu√ß√£o da classe, onde o ambiente do fil√≥sofo ser√° rodado
         public void run() {
             try {
-                // Coloca o filÛsofo para pensar
+                // Coloca o fil√≥sofo para pensar
                 pensar();
 
-                // Ent„o realiza uma vida infinita para o filÛsofo onde inicialmente
+                // Ent√£o realiza uma vida infinita para o fil√≥sofo onde inicialmente
                 // ele executa os procedimentos de pergar os garfos da mesa, posteriormente
                 // ele descansa um pouco, e por fim, ele largar os garfos que ele pegou
                 do {
@@ -117,13 +117,13 @@ namespace Jantar_Filosofos {
             }
         }
 
-        // MÈtodo para definir que o filÛsofo est· pensando
+        // M√©todo para definir que o fil√≥sofo est√° pensando
         public void pensar() {
-            // Seta o estado deste filÛsofo na classe Grade para PENSANDO
+            // Seta o estado deste fil√≥sofo na classe Grade para PENSANDO
             Jantar.estado[this.cadeira] = Jantar.pensando;
 
-            // Ser· criado um controle para o filÛsofo permanecer pensando
-            // durante certo perÌodo de tempo
+            // Ser√° criado um controle para o fil√≥sofo permanecer pensando
+            // durante certo per√≠odo de tempo
             try {
                 // Fica parado neste estado por 1000 milisegundos
                 Thread.Sleep(1000);
@@ -133,9 +133,9 @@ namespace Jantar_Filosofos {
             }
         }
 
-        // MÈtodo para definir que o filÛsofo est· comendo
+        // M√©todo para definir que o fil√≥sofo est√° comendo
         public void comer() {
-            // Seta o estado deste filÛsofo na classe Grade para COMENDO
+            // Seta o estado deste fil√≥sofo na classe Grade para COMENDO
             Jantar.estado[this.cadeira] = Jantar.comendo;
 
             try {
@@ -145,10 +145,10 @@ namespace Jantar_Filosofos {
             }
         }
 
-        // MÈtodo para o filÛsofo pegar um garfo na mesa
+        // M√©todo para o fil√≥sofo pegar um garfo na mesa
         public void pegarGarfo() {
-            // Decrementa o sem·foro mutex principal da classe, isso permite
-            // informar que o atual mÈtodo est· operando na mesa dos filÛsofos
+            // Decrementa o sem√°foro mutex principal da classe, isso permite
+            // informar que o atual m√©todo est√° operando na mesa dos fil√≥sofos
             try {
                 Jantar.mutex.WaitOne();
             } catch (ThreadInterruptedException e) {
@@ -157,15 +157,15 @@ namespace Jantar_Filosofos {
 
             Jantar.estado[this.cadeira] = Jantar.faminto;
 
-            // ApÛs o filÛsofo o perÌodo de fome, ele vai verificar com seus
+            // Ap√≥s o fil√≥sofo o per√≠odo de fome, ele vai verificar com seus
             // vizinhos se ele pode pegar os garfos
             testar();
 
-            // ApÛs operar, volta o sem·foro mutex para o estado normal
-            // indicando que j· realizou todos procedimentos na mesa
+            // Ap√≥s operar, volta o sem√°foro mutex para o estado normal
+            // indicando que j√° realizou todos procedimentos na mesa
             Jantar.mutex.Release();
 
-            // Decrementa seu sem·foro
+            // Decrementa seu sem√°foro
             try {
                 Jantar.semaforos[this.cadeira].WaitOne();
             } catch (ThreadInterruptedException e) {
@@ -173,55 +173,55 @@ namespace Jantar_Filosofos {
             }
         }
 
-        // MÈtodo para o filÛsofo soltar um garfo que ele pegou
+        // M√©todo para o fil√≥sofo soltar um garfo que ele pegou
         public void largarGarfos() {
-            // Decrementa o sem·foro mutex principal da classe, isso permite
-            // informar que o atual mÈtodo est· operando na mesa dos filÛsofos
+            // Decrementa o sem√°foro mutex principal da classe, isso permite
+            // informar que o atual m√©todo est√° operando na mesa dos fil√≥sofos
             try {
                 Jantar.mutex.WaitOne();
             } catch (ThreadInterruptedException e) {
                 Console.WriteLine("ERROR>" + e.Message);
             }
 
-            // Coloca o filÛsofo para pensar determinado tempo
+            // Coloca o fil√≥sofo para pensar determinado tempo
             pensar();
 
-            // ApÛs o filÛsofo pensar, ele vai informar para os seus vizinhos
-            // que podem tentar pegar os garfos que j· est„o disponÌveis
+            // Ap√≥s o fil√≥sofo pensar, ele vai informar para os seus vizinhos
+            // que podem tentar pegar os garfos que j√° est√£o dispon√≠veis
             Jantar.filosofo[VizinhoEsquerda()].testar();
             Jantar.filosofo[VizinhoDireita()].testar();
 
-            // ApÛs operar, volta o sem·foro mutex para o estado normal
-            // indicando que j· realizou todos procedimentos na mesa
+            // Ap√≥s operar, volta o sem√°foro mutex para o estado normal
+            // indicando que j√° realizou todos procedimentos na mesa
             Jantar.mutex.Release();
         }
 
-        // MÈtodo para verificar se o filÛsofo pode pegar um garfo disposto na mesa
+        // M√©todo para verificar se o fil√≥sofo pode pegar um garfo disposto na mesa
         public void testar() {
-            // Verifica se este filÛsofo est· com fome, e se o vizinho da esquerda
-            // e da direita n„o est„o comendo
+            // Verifica se este fil√≥sofo est√° com fome, e se o vizinho da esquerda
+            // e da direita n√£o est√£o comendo
             if (Jantar.estado[this.cadeira] == Jantar.faminto &&
                 Jantar.estado[VizinhoEsquerda()] != Jantar.comendo &&
                 Jantar.estado[VizinhoDireita()] != Jantar.comendo) {
-                // Ent„o este filÛsofo pode comer
+                // Ent√£o este fil√≥sofo pode comer
                 comer();
 
-                // E incrementa o seu sem·foro
+                // E incrementa o seu sem√°foro
                 Jantar.semaforos[this.cadeira].Release();
             }
         }
 
-        // MÈtodo para obter o filÛsofo vizinho da direita
+        // M√©todo para obter o fil√≥sofo vizinho da direita
         public int VizinhoDireita() {
             return (this.cadeira + 1) % 5;
         }
 
-        // MÈtodo para obter o filÛsofo vizinho da esquerda
+        // M√©todo para obter o fil√≥sofo vizinho da esquerda
         public int VizinhoEsquerda() {
             return (this.cadeira + 5 - 1) % 5;
         }
 
-        //Mostrar o estado de todos os filÛsofos na mesa
+        //Mostrar o estado de todos os fil√≥sofos na mesa
         public void mostraEstados() {
             try {
                 Jantar.mutex.WaitOne();
@@ -230,21 +230,21 @@ namespace Jantar_Filosofos {
             }
 
             for (int n = 0; n < 5; n++) {
-                Console.WriteLine("FilÛsofo {0} ", (n + 1));
+                Console.WriteLine("Fil√≥sofo {0} ", (n + 1));
                 switch (Jantar.estado[n]) {
                     case Jantar.pensando:
                         {
-                            Console.WriteLine("Est· PENSANDO ");
+                            Console.WriteLine("Est√° PENSANDO ");
                             break;
                         }
                     case Jantar.faminto:
                         {
-                            Console.WriteLine("Est· FAMINTO ");
+                            Console.WriteLine("Est√° FAMINTO ");
                             break;
                         }
                     case Jantar.comendo:
                         {
-                            Console.WriteLine("Est· COMENDO ");
+                            Console.WriteLine("Est√° COMENDO ");
                             break;
                         }
                     default:
