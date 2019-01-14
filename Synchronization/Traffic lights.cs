@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 using System.Threading;
 
 //Trabalho Final Sistemas Operacionais
-//Exercício 6.2
+//ExercÃ­cio 6.2
 //Grupo: Alessandra Faria, Cleuba Alves, Lucas Amancio, Mirella Avelino e Yanna Paula 
-//Descrição: programa de sincronização de threads, utilizando a classe Semaphore para tratamento de deadlocks. 
-//Entrada: nomes dos componentes do grupo e seus números de matrícula.
-//Saída: informações sobre a produção e o consumo.
-//Para executar: SO_6_2_2.exe Lucas Mantini 590982, ao pressionar a tecla T, o programa finaliza a produção e o consumo.
+//DescriÃ§Ã£o: programa de sincronizaÃ§Ã£o de threads, utilizando a classe Semaphore para tratamento de deadlocks. 
+//Entrada: nomes dos componentes do grupo e seus nÃºmeros de matrÃ­cula.
+//SaÃ­da: informaÃ§Ãµes sobre a produÃ§Ã£o e o consumo.
+//Para executar: SO_6_2_2.exe Lucas Mantini 590982, ao pressionar a tecla T, o programa finaliza a produÃ§Ã£o e o consumo.
 
 namespace Produtor_Consumidor_Sem {
     class Program {
@@ -43,9 +43,9 @@ namespace Produtor_Consumidor_Sem {
             getEntrada = aux;
 
             Console.WriteLine("********************************************************");
-            Console.WriteLine("Exercício 6.2.2 - Produtor-Consumidor Utilizando Semáforos");
+            Console.WriteLine("ExercÃ­cio 6.2.2 - Produtor-Consumidor Utilizando SemÃ¡foros");
             Console.WriteLine("Grupo: Alessandra Faria Abreu 573831\nCleuba Alves Ribeiro " +
-                "612542\nLucas Amancio Mantini 590982\nMirella Avelino Soares 590983\nYanna Paula Araújo Silva 601282");
+                "612542\nLucas Amancio Mantini 590982\nMirella Avelino Soares 590983\nYanna Paula AraÃºjo Silva 601282");
             Console.WriteLine("********************************************************");
 
             Thread p = new Thread(new ThreadStart(produz));
