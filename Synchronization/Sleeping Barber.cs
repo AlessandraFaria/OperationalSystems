@@ -8,27 +8,27 @@ using System.Threading.Tasks;
 namespace Barbeiro {
     public class Principal {
         //Trabalho Final Sistemas Operacionais
-        //ExercÌcio 6.3
+        //Exerc√≠cio 6.3
         //Data: 29/05/2018
         //Grupo: Alessandra Faria, Cleuba Alves, Lucas Amancio, Mirella Avelino e Yanna Paula 
-        //DescriÁ„o: Problema do barbeiro adormecido utilizando monitor.
+        //Descri√ß√£o: Problema do barbeiro adormecido utilizando monitor.
 
         static void Main(string[] args) {
             Console.WriteLine("********************************************************");
-            Console.WriteLine("ExercÌcio 6.3 - Barbeiro Adormecido com Monitor");
-            Console.WriteLine("Grupo: Alessandra Faria Abreu 573831\nCleuba Alves Ribeiro612542\nLucas Amancio Mantini 590982\nMirella Avelino Soares 590983\nYanna Paula Ara˙jo Silva 601282");
+            Console.WriteLine("Exerc√≠cio 6.3 - Barbeiro Adormecido com Monitor");
+            Console.WriteLine("Grupo: Alessandra Faria Abreu 573831\nCleuba Alves Ribeiro612542\nLucas Amancio Mantini 590982\nMirella Avelino Soares 590983\nYanna Paula Ara√∫jo Silva 601282");
             Console.WriteLine("********************************************************");
 
 
 
             Random random = new Random();
 
-            //Cria inst‚ncia da classe barbearia
+            //Cria inst√¢ncia da classe barbearia
             Barbearia barbearia = new Barbearia();
 
-            //Cria inst‚ncia da classe cliente
+            //Cria inst√¢ncia da classe cliente
             Cliente cliente = new Cliente(barbearia, random);
-            //Cria inst‚ncia da classe barbeiro
+            //Cria inst√¢ncia da classe barbeiro
             Barbeiro barbeiro = new Barbeiro(barbearia, random);
 
             // Inicializa todas suas threads
@@ -37,7 +37,7 @@ namespace Barbeiro {
             Thread threadBarbeiro = new Thread(new ThreadStart(barbeiro.cortar));
             threadBarbeiro.Name = "Barbeiro";
 
-            //Inicia execuÁ„o
+            //Inicia execu√ß√£o
             threadCliente.Start();
             threadBarbeiro.Start();
 
@@ -58,16 +58,16 @@ namespace Barbeiro {
                 lock(this) {
                     //Verifica se tem cliente na Barbearia
                     if (cadeirasEsperaOcupadas <= 0 && barbeiro == 1) {
-                        //Libera o bloqueio de um objeto e bloqueia o thread atual atÈ que ele precise do bloqueio.
+                        //Libera o bloqueio de um objeto e bloqueia o thread atual at√© que ele precise do bloqueio.
                         Console.WriteLine("\nBarbeiro dormindo...");
                         Monitor.Wait(this);
                     }
-                    //Libera um cliente, barbeiro em aÁ„o
+                    //Libera um cliente, barbeiro em a√ß√£o
                     --cadeirasEsperaOcupadas;
                     Console.WriteLine("\nBarbeiro atende cliente. Cortando o cabelo. \nClientes restantes: " + cadeirasEsperaOcupadas);
                     barbeiro = 1;
 
-                    //Notifica thread na fila de espera de uma alteraÁ„o no estado do objeto bloqueado.
+                    //Notifica thread na fila de espera de uma altera√ß√£o no estado do objeto bloqueado.
                     Monitor.Pulse(this);
                     return barbeiro;
                 }
@@ -76,9 +76,9 @@ namespace Barbeiro {
             set {
                 // Garantir apenas uma thread em execucao
                 lock(this) {
-                    //Verifica se barbearia est· cheia
+                    //Verifica se barbearia est√° cheia
                     if (cadeirasEsperaOcupadas == capacidadeBarbearia) {
-                        //Libera o bloqueio de um objeto e bloqueia o thread atual atÈ que ele precise do bloqueio.
+                        //Libera o bloqueio de um objeto e bloqueia o thread atual at√© que ele precise do bloqueio.
                         Console.WriteLine("\nBarbearia cheia, o cliente foi embora!");
                         Monitor.Wait(this);
                     }
@@ -89,19 +89,19 @@ namespace Barbeiro {
 
                     //Caso, haja clientes e o barbeiro desocupado
                     if (cadeirasEsperaOcupadas > 0 && barbeiro == 1) {
-                        //Notifica thread na fila de espera de uma alteraÁ„o no estado do objeto bloqueado.
+                        //Notifica thread na fila de espera de uma altera√ß√£o no estado do objeto bloqueado.
                         Monitor.Pulse(this);
                     }
 
                     //Caso Barbeiro esteja ocupado
                     if (barbeiro == 0) {
-                        //Libera o bloqueio de um objeto e bloqueia o thread atual atÈ que ele precise do bloqueio.
+                        //Libera o bloqueio de um objeto e bloqueia o thread atual at√© que ele precise do bloqueio.
                         Console.WriteLine("\nBarbeiro ocupado");
                         Monitor.Wait(this);
                     }
 
                     barbeiro = 1;
-                    //Notifica thread na fila de espera de uma alteraÁ„o no estado do objeto bloqueado.
+                    //Notifica thread na fila de espera de uma altera√ß√£o no estado do objeto bloqueado.
                     Monitor.Pulse(this);
                 }
             }
