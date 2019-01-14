@@ -79,7 +79,7 @@ namespace PC_Monitor {
                 localizacaoComp.Grupo = dadosAlunos[i];
             }
 
-            Console.WriteLine(Thread.CurrentThread.Name + "Produção terminada " + Thread.CurrentThread.Name + ".");
+            Console.WriteLine(Thread.CurrentThread.Name + "ProduÃ§Ã£o terminada " + Thread.CurrentThread.Name + ".");
 
 
         }
@@ -111,20 +111,20 @@ namespace PC_Monitor {
     }
     class Ex_6_1 {
         //Trabalho Final Sistemas Operacionais
-        //Exercício 6.1
+        //ExercÃ­cio 6.1
         //Data: 15/05/2018
         //Grupo: Alessandra Faria, Cleuba Alves, Lucas Amancio, Mirella Avelino e Yanna Paula 
-        //Descrição: Usando monitores implementar o programa produtor consumidor.
-        //Entrada: Nomes e números de matrícula dos componentes do grupo.
-        //Para executar: Ex_6_1.exe AlessandraFariaAbreu573831 CleubaAlvesRibeiro LucasAmancioMantini590982 MirellaAvelinoSoares590983 YannaPaulaAraújoSilva601282
-        //Saída: Mostrar processo de produção e consumo.
+        //DescriÃ§Ã£o: Usando monitores implementar o programa produtor consumidor.
+        //Entrada: Nomes e nÃºmeros de matrÃ­cula dos componentes do grupo.
+        //Para executar: Ex_6_1.exe AlessandraFariaAbreu573831 CleubaAlvesRibeiro LucasAmancioMantini590982 MirellaAvelinoSoares590983 YannaPaulaAraÃºjoSilva601282
+        //SaÃ­da: Mostrar processo de produÃ§Ã£o e consumo.
 
 
         static void Main(string[] args) {
 
             Console.WriteLine("********************************************************");
-            Console.WriteLine("Exercício 6.1 - Produtor Consumidor com Monitor");
-            Console.WriteLine("Grupo: Alessandra Faria Abreu 573831\nCleuba Alves Ribeiro\nLucas Amancio Mantini 590982\nMirella Avelino Soares 590983\nYanna Paula Araújo Silva 601282");
+            Console.WriteLine("ExercÃ­cio 6.1 - Produtor Consumidor com Monitor");
+            Console.WriteLine("Grupo: Alessandra Faria Abreu 573831\nCleuba Alves Ribeiro\nLucas Amancio Mantini 590982\nMirella Avelino Soares 590983\nYanna Paula AraÃºjo Silva 601282");
             Console.WriteLine("********************************************************");
 
             Buffer buf = new Buffer();
